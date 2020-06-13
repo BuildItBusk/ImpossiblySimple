@@ -16,8 +16,8 @@ namespace Services.Agreements
 
         public async Task CreateAgreement(AgreementDto agreementDto)
         {
-            var agreement = new Agreement();
-            // TODO: Map agreement
+            var asset = new Asset(DateTime.Now);
+            var agreement = new Agreement(asset);
             _myContext.Agreements.Add(agreement);
             await _myContext.SaveChangesAsync();
         }
