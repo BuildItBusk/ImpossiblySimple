@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Services.EFCore;
 
 namespace Services.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20200614200810_AddedDefaultValues")]
+    partial class AddedDefaultValues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,11 +35,9 @@ namespace Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(64)")
-                        .HasDefaultValueSql("SYSTEM_USER")
-                        .HasMaxLength(64);
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("SYSTEM_USER");
 
                     b.Property<DateTime>("CreatedDtm")
                         .ValueGeneratedOnAdd()
@@ -59,11 +59,9 @@ namespace Services.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("nvarchar(64)")
-                        .HasDefaultValueSql("SYSTEM_USER")
-                        .HasMaxLength(64);
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValueSql("SYSTEM_USER");
 
                     b.Property<DateTime>("CreatedDtm")
                         .ValueGeneratedOnAdd()

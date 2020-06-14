@@ -7,6 +7,12 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200614190821_InitialMigration.cs" />
     <Compile Remove="Migrations\20200614190821_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200614200305_AddedDefaultValues.cs" />
+    <Compile Remove="Migrations\20200614200305_AddedDefaultValues.Designer.cs" />
+    <Compile Remove="Migrations\20200614200539_AddedDefaultValues.cs" />
+    <Compile Remove="Migrations\20200614200539_AddedDefaultValues.Designer.cs" />
+    <Compile Remove="Migrations\20200614200948_MadeCreatedByRequired.cs" />
+    <Compile Remove="Migrations\20200614200948_MadeCreatedByRequired.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

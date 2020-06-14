@@ -1,6 +1,11 @@
 ﻿using Domain;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Services.EFCore.Configurations;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Services.EFCore
 {
@@ -13,7 +18,9 @@ namespace Services.EFCore
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-
+            builder.ApplyConfiguration(new AuditableEntityConfiguration<Agreement>());
+            builder.ApplyConfiguration(new AuditableEntityConfiguration<Asset>());
         }
+
     }
 }

@@ -1,19 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using Domain;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UserInterface
 {
@@ -26,7 +14,8 @@ namespace UserInterface
         {
             InitializeComponent();
 
-            string connStr = ConfigurationManager.ConnectionStrings["SqlDb"].ConnectionString;
+            var types = Assembly.GetAssembly(typeof(AuditableEntity)).GetTypes()
+                .Where(myType => myType.IsClass && !myType.IsAbstract && myType.IsSubclassOf(typeof(AuditableEntity)));
         }
     }
 }
