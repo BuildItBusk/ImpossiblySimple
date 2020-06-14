@@ -11,7 +11,6 @@ namespace Services.EFCore.Configurations
     {
         public void Configure(EntityTypeBuilder<Agreement> builder)
         {
-            
         }
     }
 }
